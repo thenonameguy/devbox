@@ -269,6 +269,9 @@ func (d *Devbox) PrintEnv(ctx context.Context, useCache bool, includeHooks bool)
 			return "", err
 		}
 	}
+	if err := d.ensurePackagesAreInstalled(ctx, ensure); err != nil {
+		return "", err
+	}
 
 	var envs map[string]string
 	var err error
@@ -284,6 +287,10 @@ func (d *Devbox) PrintEnv(ctx context.Context, useCache bool, includeHooks bool)
 	envStr := exportify(envs)
 
 	if includeHooks {
+		err = d.writeScriptsToFiles()
+		if err != nil {
+			return "", err
+		}
 		hooksStr := ". " + d.scriptPath(hooksFilename)
 		envStr = fmt.Sprintf("%s\n%s", envStr, hooksStr)
 	}
