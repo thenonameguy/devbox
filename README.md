@@ -50,7 +50,7 @@ Development environments created by Devbox are isolated from everything else in 
 
 ### Don't sacrifice speed
 
-Devbox can create isolated environments right on your laptop, without an extra-layer of virtualization slowing your file system or every command. When you're ready to ship, it'll turn it into an equivalent container – but not before.
+Devbox can create isolated environments right on your laptop, without an extra-layer of virtualization slowing your file system on every command. When you're ready to ship, it'll turn it into an equivalent container – but not before.
 
 ### Good-bye conflicting versions
 
