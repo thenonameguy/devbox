@@ -26,8 +26,8 @@ func NewClient() *client {
 	}
 }
 
-func (c *client) Search(query string) (*SearchResult, error) {
-	response, err := http.Get(c.endpoint + "?q=" + query)
+func (c *client) Search(query, version string) (*SearchResult, error) {
+	response, err := http.Get(c.endpoint + "?q=" + query + "&v=" + version)
 	if err != nil {
 		return nil, err
 	}
